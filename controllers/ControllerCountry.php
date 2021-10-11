@@ -15,16 +15,11 @@ class ControllerCountry
     private function sendToModelThenJsonForCountry()
     {
         $this->_countryManager = new CountryManager;
-        $this->_countryManager->getListToManagerForJson("SELECT country.Code,country.NameCountry,countrylanguage.Language,city.Name,country.Continent,country.Population,country.SurfaceArea FROM `country`,`countrylanguage`,`city` WHERE country.Code = countrylanguage.CountryCode AND countrylanguage.IsOfficial='T' AND city.Id=country.Capital");
+        $this->_countryManager->getListToManagerForJson("SELECT country.Code,country.NameCountry,city.Name,country.Continent,country.Population,country.SurfaceArea FROM `country`,`city` WHERE city.Id=country.Capital ORDER BY country.NameCountry" );
     }
 
     private function sendToModelAndView($reqsql)
     {
-        echo " controller : ";
-        echo "</br>";
-        print_r($reqsql);
-        echo "</br>";
-
         $this->_countryManager = new CountryManager;
         $country = $this->_countryManager->getCountfree($reqsql);
         $this->_view = new View('Country');
@@ -49,6 +44,7 @@ class ControllerCountry
             $request .= " ".$key."='".$value."' AND "; 
         }
         $request = substr($request, 0, -5);
+        $request .= " ORDER BY country.NameCountry";
         return $request;
     }
 

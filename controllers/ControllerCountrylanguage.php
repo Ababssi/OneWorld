@@ -20,11 +20,6 @@ class ControllerCountrylanguage
 
     private function sendToModelAndView($reqsql)
     {
-        echo " controller : ";
-        echo "</br>";
-        print_r($reqsql);
-        echo "</br>";
-
         $this->_countrylanguageManager = new CountrylanguageManager;
         $countrylanguage = $this->_countrylanguageManager->getLanguefree($reqsql);
         $this->_view = new View('Countrylanguage');
@@ -49,6 +44,7 @@ class ControllerCountrylanguage
             $request .= " ".$key."='".$value."' AND "; 
         }
         $request = substr($request, 0, -5);
+        $request .= " ORDER BY contrylanguage.Language";
         return $request;
     }
 

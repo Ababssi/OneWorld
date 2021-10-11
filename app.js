@@ -3,7 +3,7 @@
 function ficheCountry()
 {
 	let rechP = document.getElementById('select-country').value;
-	window.location.href = 'http://oneworld.cyberdevweb.fr/index.php?url=country/country.Name:'+rechP;
+	window.location.href = 'http://oneworld.cyberdevweb.fr/index.php?url=country/country.NameCountry:'+rechP;
 }
 function ficheCity()
 {
@@ -37,11 +37,13 @@ function afficheRech2()
 {
 	let ByCtFrCity = document.getElementById('selectByContForCity').value;
 	let ByPoFrCity = document.getElementById('selectByPopuForCity').value;
+	let ByCoFrCity = document.getElementById('selectByCoun').value;
 
 	lien = 'http://oneworld.cyberdevweb.fr/index.php?url=city';
 
 	if (ByCtFrCity!=="*"){lien+='/country.Continent:'+ByCtFrCity;}
 	if (ByPoFrCity!=="*"){lien+='/city.Population>:'+ByPoFrCity;}
+	if (ByCoFrCity){lien+='/country.NameCountry:'+ByCoFrCity;}
 
 	window.location.href = lien;
 }
@@ -50,13 +52,13 @@ function afficheRech3()
 {
 	let ByCtFrLang = document.getElementById('selectByContForLang').value;
 	let ByOffFrLang = document.getElementById('selectByOff').value;
-	let ByCountFrLang = document.getElementById('selectByCoun').value;
+	let ByCountFrLang = document.getElementById('selectByCoun2').value;
 
 	lien = 'http://oneworld.cyberdevweb.fr/index.php?url=countrylanguage';
 	
 	if (ByCtFrLang!=="*"){lien+='/country.Continent:'+ByCtFrLang;}
 	if (ByOffFrLang!=="*"){lien+='/IsOffical:'+ByOffFrLang;}
-	if (ByCountFrLang){lien+='/country.Name:'+ByCountFrLang;}
+	if (ByCountFrLang){lien+='/country.NameCountry:'+ByCountFrLang;}
 
 	window.location.href = lien;
 }
@@ -126,29 +128,15 @@ new TomSelect('#select-country',{
 	// custom rendering function for options
 	render: {
 		option: function(item, escape) {
-			return `<div class="cellSelected">
-						<div>
-							<img class="imgSelect" src="sources/svg/${ escape(item.Code) }.svg" alt="drapeau"> 
-						</div>
-						<div>
-							<p class="rh1">${ escape(item.NameCountry) }</p>
-						</div>
-						<div>
-							<p class="rh2">${ escape(item.Name) }</p>
-						</div>
-						<div>
-							<p class="rh2">${ escape(item.Continent) }</p>
-						</div>
-						<div>
-							<p class="rh3">${ escape(item.Population) }</p> 
-						</div>
-						<div">
-							<p class="rh4">${ escape(item.SurfaceArea) }</p>
-						</div>
-						<div>
-							<p class="rh4">${ escape(item.Language) }</p> 
-						</div>
+			return `<div class="containSelect">					 		 	
+						<img class="imgSelect" src="/sources/svg/${ escape(item.Code) }.svg" alt="drapeau">						
+						<p class="rh3">${ escape(item.NameCountry) }</p>							
+						<p class="rh4">${ escape(item.Name) }</p>				
+						<p class="rh4">${ escape(item.Continent) }</p>			
+						<p class="rh5">${ escape(item.Population) } ppl</p> 				
+						<p class="rh5">${ escape(item.SurfaceArea) } km²</p>							
 					</div>`;
+
 		}
 	},
 });
@@ -177,25 +165,14 @@ new TomSelect('#select-city',{
 	// custom rendering function for options
 	render: {
 		option: function(item, escape) {
-			return `<div class="py-2 d-flex">
-						<div class="mb-1">
-							<span class="h4">
-								${ escape(item.Name) }  
-							</span>
-							<span class="h5">
-								District : ${ escape(item.District) }
-							</span>
-							<span class="h5">
-								Country : ${ escape(item.IsCapital) }
-							</span>
-							<span class="h5">
-								Country : ${ escape(item.NameCountry) }
-							</span>							
-						</div>
-						<div class="ms-auto">
-						 Population : ${ escape(item.Population) }
-						</div>
+			return `<div class="containSelect">					 		 	
+						<img class="imgSelect" src="/sources/svg/${ escape(item.Code) }.svg" alt="drapeau">						
+						<p class="rh3">${ escape(item.Name) }</p>							
+						<p class="rh4">${ escape(item.NameCountry) }</p>				
+						<p class="rh4">${ escape(item.IsCapital) }</p>			
+						<p class="rh5">${ escape(item.Population) } ppl</p> 											
 					</div>`;
+
 		}
 	},
 });
@@ -224,22 +201,14 @@ new TomSelect('#select-language',{
 	// custom rendering function for options
 	render: {
 		option: function(item, escape) {
-			return `<div class="py-2 d-flex">
-						<div class="mb-1">
-							<span class="h4">
-								${ escape(item.Language) }
-							</span>
-							<span class="h4">
-							${ escape(item.Percentage) } %
-							</span>
-							<span class="h4">
-							in ${ escape(item.CountryCode) } 
-							</span>
-						</div>
-						<div class="ms-auto">
-						 	isOfficial ? : ${ escape(item.IsOfficial) } 
-						</div>
+			return `<div class="containSelect">					 		 	
+						<img class="imgSelect" src="/sources/svg/${ escape(item.Code) }.svg" alt="drapeau">						
+						<p class="rh3">${ escape(item.Language) }</p>							
+						<p class="rh4">${ escape(item.NameCountry) }</p>				
+						<p class="rh4">${ escape(item.IsOfficial) }</p>			
+						<p class="rh5">${ escape(item.percentage) } %</p> 											
 					</div>`;
+
 		}
 	},
 });
@@ -257,7 +226,7 @@ new TomSelect('#selectByLang',{
 			callback();
 			return;
 		}
-		var url = 'http://oneworld.cyberdevweb.fr/onlyLangueName.json';
+		var url = 'http://oneworld.cyberdevweb.fr/languageFulldataMaincountry.json';
 		fetch(url)
 			.then(response => response.json())
 			.then(json => {
@@ -268,20 +237,18 @@ new TomSelect('#selectByLang',{
 	// custom rendering function for options
 	render: {
 		option: function(item, escape) {
-			return `<div class="py-2 d-flex">
-						<div class="mb-1">
-							<span class="h4">
-								${ escape(item.Language) }
-							</span>
+			return `<div class="containSelect">					 		 	
+						<p class="rh3">${ escape(item.Language) }</p> 											
 					</div>`;
+
 		}
 	},
 });
 //----------------------------------------------------------------------------------------	
 new TomSelect('#selectByCoun',{
-	valueField: 'Name',
-	labelField: 'Name',
-	searchField: ['Name'],
+	valueField: 'NameCountry',
+	labelField: 'NameCountry',
+	searchField: ['NameCountry'],
 	// fetch remote data
 	load: function(query, callback) 
 	{
@@ -291,7 +258,7 @@ new TomSelect('#selectByCoun',{
 			callback();
 			return;
 		}
-		var url = 'http://oneworld.cyberdevweb.fr/onlyCountryName.json';
+		var url = 'http://oneworld.cyberdevweb.fr/countryFulldataCapitalcityMainlanguage.json';
 		fetch(url)
 			.then(response => response.json())
 			.then(json => {
@@ -302,11 +269,40 @@ new TomSelect('#selectByCoun',{
 	// custom rendering function for options
 	render: {
 		option: function(item, escape) {
-			return `<div class="py-2 d-flex">
-						<div class="mb-1">
-							<span class="h4">
-								${ escape(item.Name) }
-							</span>					
+			return `<div class="containSelect">					 		 	
+						<p class="rh3">${ escape(item.NameCountry) }</p> 											
+					</div>`;
+		}
+	},
+});
+
+//----------------------------------------------------------------------------------------	
+new TomSelect('#selectByCoun2',{
+	valueField: 'NameCountry',
+	labelField: 'NameCountry',
+	searchField: ['NameCountry'],
+	// fetch remote data
+	load: function(query, callback) 
+	{
+		var self = this;
+		if( self.loading > 1 )
+		{
+			callback();
+			return;
+		}
+		var url = 'http://oneworld.cyberdevweb.fr/countryFulldataCapitalcityMainlanguage.json';
+		fetch(url)
+			.then(response => response.json())
+			.then(json => {
+						    callback(json.result.list);
+						    self.settings.load = null;
+						  }).catch(()=>{callback();});
+	},
+	// custom rendering function for options
+	render: {
+		option: function(item, escape) {
+			return `<div class="containSelect">					 		 	
+						<p class="rh3">${ escape(item.NameCountry) }</p> 											
 					</div>`;
 		}
 	},

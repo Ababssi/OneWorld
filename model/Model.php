@@ -42,19 +42,12 @@ abstract class Model
     protected function getListfree($obj,$requeteSQL)
     {
         $var =[];
-        echo " model : ";
-        echo "</br>";
-        print_r($requeteSQL);
-        echo "</br>";
         $req =self::$_bdd->prepare($requeteSQL);
         $req->execute();
         while ($data =$req->fetch(PDO::FETCH_ASSOC))
         {
             $var[] = new $obj($data);  
         }
-        echo " model resultat : ";
-        echo "</br>";
-
         return $var;
         $req->closeCursor();
     }
@@ -62,25 +55,14 @@ abstract class Model
     protected function getListToModelForJson($jsonFile,$requeteSQL)
     {
         $tabData = array();
-        echo " model request : ";
-        echo "</br>";
-        print_r($requeteSQL);
-        echo "</br>";
-        echo " model name file json : ";
-        echo "</br>";
-        print_r($jsonFile);
-        echo "</br>";
-
         $req =self::$_bdd->prepare($requeteSQL);
         $req->execute();
         while ($data =$req->fetch(PDO::FETCH_ASSOC))
         {
             $tabData[] = $data;
         }
-
         $jsonData = json_encode($tabData, JSON_FORCE_OBJECT);
         file_put_contents($jsonFile, $jsonData);
-
         $req->closeCursor();
     }
 }

@@ -20,11 +20,7 @@ class ControllerCity
 
     private function sendToModelAndView($reqsql)
     {
-        echo " controller euf : ";
-        echo "</br>";
-        print_r($reqsql);
-        echo "</br>";
-     
+
         $this->_cityManager = new CityManager;
         echo " controller euf : ";
         var_dump($this->_cityManager);
@@ -47,11 +43,12 @@ class ControllerCity
 
     public static function arrayToRequestForView($tabAsso)
     {
-        $request = "SELECT * FROM `country`,`city` WHERE country.Code = city.CountryCode AND ";
+        $request = "SELECT DISTINCT city.* FROM `country`,`city` WHERE country.Code = city.CountryCode AND ";
         foreach ($tabAsso as $key => $value) {
             $request .= " ".$key."='".$value."' AND "; 
         }
         $request = substr($request, 0, -5);
+        $request .= " ORDER BY city.Name";
         return $request;
     }  
  
