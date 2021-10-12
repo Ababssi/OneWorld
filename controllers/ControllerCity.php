@@ -2,8 +2,8 @@
 require_once('views/View.php');
 class ControllerCity
 {
-    private $_cityManager;
-    private $_view;
+    private $cityManager;
+    private $view;
 
     public function __construct($crit)  
     {
@@ -14,20 +14,18 @@ class ControllerCity
 
     private function sendToModelThenJsonForCity()
     {
-        $this->_cityManager = new CityManager;
-        $this->_cityManager->getListToManagerForJson("SELECT DISTINCT city.Id,city.Name,city.Population,city.IsCapital,country.NameCountry,country.Code FROM `city`,`country` WHERE city.CountryCode=country.Code ");
+        $this->cityManager = new CityManager;
+        $this->cityManager->getListToManagerForJson("SELECT DISTINCT city.Id,city.Name,city.Population,city.IsCapital,country.NameCountry,country.Code FROM `city`,`country` WHERE city.CountryCode=country.Code ");
     }
 
     private function sendToModelAndView($reqsql)
     {
 
-        $this->_cityManager = new CityManager;
-        echo " controller euf : ";
-        var_dump($this->_cityManager);
-        $city = $this->_cityManager->getCityfree($reqsql);
+        $this->cityManager = new CityManager;
+        $city = $this->cityManager->getCityfree($reqsql);
 
-        $this->_view = new View('City');
-        $this->_view->generate(array('city'=> $city)); 
+        $this->view = new View('City');
+        $this->view->generate(array('city'=> $city)); 
     }
 
     public static function urlToArray($crit)

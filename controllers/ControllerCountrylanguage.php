@@ -2,8 +2,8 @@
 require_once('views/View.php');
 class ControllerCountrylanguage
 {
-    private $_countrylanguageManager;
-    private $_view;
+    private $countrylanguageManager;
+    private $view;
 
     public function __construct($crit)
     {
@@ -14,16 +14,16 @@ class ControllerCountrylanguage
 
     private function sendToModelThenJsonForLanguage()
     {
-        $this->_countrylanguageManager = new CountrylanguageManager;
-        $this->_countrylanguageManager->getListToManagerForJson("SELECT countrylanguage.Language,countrylanguage.percentage,countrylanguage.IsOfficial,country.NameCountry,country.Code FROM `countrylanguage`,`country` WHERE countrylanguage.CountryCode=country.Code ");
+        $this->countrylanguageManager = new CountrylanguageManager;
+        $this->countrylanguageManager->getListToManagerForJson("SELECT countrylanguage.Language,countrylanguage.percentage,countrylanguage.IsOfficial,country.NameCountry,country.Code FROM `countrylanguage`,`country` WHERE countrylanguage.CountryCode=country.Code ");
     }
 
     private function sendToModelAndView($reqsql)
     {
-        $this->_countrylanguageManager = new CountrylanguageManager;
-        $countrylanguage = $this->_countrylanguageManager->getLanguefree($reqsql);
-        $this->_view = new View('Countrylanguage');
-        $this->_view->generate(array('countrylanguage'=> $countrylanguage)); 
+        $this->countrylanguageManager = new CountrylanguageManager;
+        $countrylanguage = $this->countrylanguageManager->getLanguefree($reqsql);
+        $this->view = new View('Countrylanguage');
+        $this->view->generate(array('countrylanguage'=> $countrylanguage)); 
     }
 
     public static function urlToArray($crit)

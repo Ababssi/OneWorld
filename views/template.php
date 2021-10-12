@@ -34,12 +34,12 @@
                     </div>
 
                     <div class="select">
-                        <select id="selectByLang" name ="selectByLang" placeholder="Langue" ></select> 
+                        <select id="selectByLang" name ="selectByLang" placeholder="Par langue parlée" ></select> 
                     </div>
 
                     <div class="select">
-                        <select id="selectByContForCountry" name ="selectByContForCountry" placeholder="Continent" value="all">
-                            <option value="*">Continent</option>
+                        <select id="selectByContForCountry" name ="selectByContForCountry" placeholder="Par Continent" value="all">
+                            <option value="*">Par Continent</option>
                             <option value="North America">North America</option>
                             <option value="South America">South America</option>
                             <option value="Europe">Europe</option>
@@ -51,8 +51,8 @@
                     </div>
 
                     <div class="select">
-                        <select id="selectByPopuForCountry" name ="selectByPopuForCountry" placeholder="Population" value="all">
-                            <option value="*">Population</option>
+                        <select id="selectByPopuForCountry" name ="selectByPopuForCountry" placeholder="Par Tranche de Population" value="all">
+                            <option value="*">Par Population</option>
                             <option value="2000000"> plus de 2M </option>
                             <option value="5000000"> plus de 10M </option>
                             <option value="10000000"> plus de 50M </option>
@@ -75,8 +75,8 @@
                     </div>
 
                     <div class="select">
-                        <select id="selectByContForCity" name ="selectByContForCity" placeholder="Continent" value="all">
-                            <option value="*">Continent</option>
+                        <select id="selectByContForCity" name ="selectByContForCity" placeholder="Par Continent" value="all">
+                            <option value="*">Par Continent</option>
                             <option value="North America">North America</option>
                             <option value="South America">South America</option>
                             <option value="Europe">Europe</option>
@@ -88,8 +88,8 @@
                     </div>
 
                     <div class="select">
-                        <select id="selectByPopuForCity" name ="selectByPopuForCity" placeholder="Population" value="all">
-                            <option value="*">Population</option>
+                        <select id="selectByPopuForCity" name ="selectByPopuForCity" placeholder="Par Tranche de Population" value="all">
+                            <option value="*">Par Population</option>
                             <option value="200000">plus de 200k</option>
                             <option value="500000">plus de 1M</option>
                             <option value="1000000">plus de 5M</option>
@@ -115,8 +115,8 @@
                     </div>
 
                     <div class="select">
-                        <select id="selectByContForLang" name ="selectByContForLang" placeholder="Continent" value="all">
-                            <option value="*">Continent</option>
+                        <select id="selectByContForLang" name ="selectByContForLang" placeholder="Par Continent" value="all">
+                            <option value="*">Par Continent</option>
                             <option value="North America">North America</option>
                             <option value="South America">South America</option>
                             <option value="Europe">Europe</option>
@@ -129,14 +129,14 @@
 
                     <div class="select">
                         <select id="selectByOff" name ="selectByOff" placeholder="Officials" value="all">
-                            <option value="*">Statut</option>
+                            <option value="*">Par Statut</option>
                             <option value="T">Officiel</option>
                             <option value="F">NonOfficiel</option>
                         </select>
                     </div>
 
                     <div class="select">
-                        <select id="selectByCoun2" name ="selectByCoun2" placeholder="Pays"></select>                   
+                        <select id="selectByCoun2" name ="selectByCoun2" placeholder="Par Pays"></select>                   
                     </div>
 
                     <button onclick="return afficheRech3();">Filtrer</button>

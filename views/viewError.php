@@ -1,1 +1,1 @@
-<?= $errorMsg ?>
+<h3><?= $errorMsg ?></h3>

@@ -6,7 +6,7 @@ foreach ($city as $city): ?>
                 <p>Name : <?= $city->Name() ?></p>  
                 <p>CountryCode : <?= $city->CountryCode() ?></p>    
                 <p>District : <?= $city->District() ?></p>
-                <p>Population : <?= $city->Population() ?></p>
+                <p>Population : <?= $city->Population()?> hab</p>
         </div>
 <?php endforeach; ?>
 </main>

@@ -37,7 +37,7 @@ class Router
                     $this->_ctrl = new ControllerAccueil($url);
                 }                            
             }
-            else throw new Exception('Aucune Url utilisée'); 
+            else throw new Exception('Lancez une recherche !'); 
         }
         //GESTION DES ERREURS
         catch(Exception $e)

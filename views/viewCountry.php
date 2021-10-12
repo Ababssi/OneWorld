@@ -3,11 +3,11 @@
         <?php
         foreach ($country as $country): ?>
                 <div class ="drapCell" style="--background:url(/sources/svg/<?= $country->Code()?>.svg)">
-                        <p>NameCountry : <?= $country->NameCountry() ?></p>
+                        <p>NameCountry : <?= $country->NameCountry()?></p>
                         <p>CountryCode : <?= $country->Code() ?></p>                       
-                        <p>Continent : <?= $country->Continent() ?></p>
-                        <p>Surface : <?= $country->Surface() ?></p>
-                        <p>Population : <?= $country->Population() ?></p>
+                        <p>Continent : <?= $country->Continent()?></p>
+                        <p>Surface : <?= $country->Surface() ?> km²</p>
+                        <p>Population : <?= $country->Population()?> hab</p>
                 </div>   
         <?php endforeach; ?>  
 </main>
