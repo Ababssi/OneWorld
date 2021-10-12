@@ -57,7 +57,7 @@ function afficheRech3()
 	lien = 'http://oneworld.cyberdevweb.fr/index.php?url=countrylanguage';
 	
 	if (ByCtFrLang!=="*"){lien+='/country.Continent:'+ByCtFrLang;}
-	if (ByOffFrLang!=="*"){lien+='/IsOffical:'+ByOffFrLang;}
+	if (ByOffFrLang!=="*"){lien+='/IsOfficial:'+ByOffFrLang;}
 	if (ByCountFrLang){lien+='/country.NameCountry:'+ByCountFrLang;}
 
 	window.location.href = lien;

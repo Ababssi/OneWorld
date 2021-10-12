@@ -44,7 +44,7 @@ class ControllerCountrylanguage
             $request .= " ".$key."='".$value."' AND "; 
         }
         $request = substr($request, 0, -5);
-        $request .= " ORDER BY contrylanguage.Language";
+        $request .= " ORDER BY countrylanguage.Language";
         return $request;
     }
 
