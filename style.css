@@ -75,7 +75,7 @@ h3{
 }
 .drapCell:hover{
     transition: 0.4s;
-    background-position: 0px 200px;
+    background-position: -13px 217px;
     border-radius: 18% 82% 20% 80% / 82% 13% 87% 18% ;
     background-color: rgba(81, 188, 246, 0.541);
 }

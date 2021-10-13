@@ -2,7 +2,7 @@
 <main class="grid">
         <?php
         foreach ($country as $country): ?>
-                <div class ="drapCell" style="--background:url(/sources/svg/<?= $country->Code()?>.svg)">
+                <div class ="drapCell" style="--background:url(/sources/RoundFlag/<?=strtolower($country->NameCountry())?>.svg)">
                         <p>NameCountry : <?= $country->NameCountry()?></p>
                         <p>CountryCode : <?= $country->Code() ?></p>                       
                         <p>Continent : <?= $country->Continent()?></p>

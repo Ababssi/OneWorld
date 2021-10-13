@@ -147,7 +147,8 @@
             <!-------------------------------------------------------------------------------------------->
         <?= $content ?>               
         <footer>
-            <a href="abasop1@gmail.com">Sophien ABABSSI</a>
+            <p class="rh4">base de donnée datant de 1995 </p>
+            <a  class="rh4" href="abasop1@gmail.com">Sophien ABABSSI</a>
         </footer>
         <script src="app.js"></script>
 
