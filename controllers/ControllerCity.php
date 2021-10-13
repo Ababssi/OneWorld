@@ -20,10 +20,8 @@ class ControllerCity
 
     private function sendToModelAndView($reqsql)
     {
-
         $this->cityManager = new CityManager;
         $city = $this->cityManager->getCityfree($reqsql);
-
         $this->view = new View('City');
         $this->view->generate(array('city'=> $city)); 
     }

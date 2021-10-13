@@ -23,7 +23,7 @@ class ControllerCountry
         $this->countryManager = new CountryManager;
         $country = $this->countryManager->getCountfree($reqsql);
         $this->view = new View('Country');
-        $this->view->generate(array('country'=> $country)); 
+        $this->view->generate(array('country'=> $country));
     }
 
     public static function urlToArray($crit)
@@ -46,6 +46,16 @@ class ControllerCountry
         $request = substr($request, 0, -5);
         $request .= " ORDER BY country.NameCountry";
         return $request;
+    }
+
+    public static function AvglifeExpectancyOn($reqAvg){
+        
+        $fullReq = "SELECT DISTINCT country.LifeExpectancy FROM `country` WHERE country.Code = (".$reqAvg.")";
+
+        $this->countryManager = new CountryManager;
+        $this->countryManager->getListToManagerForJson($fullReq);
+
+
     }
 
 }

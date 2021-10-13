@@ -41,7 +41,6 @@ abstract class Model
 
     protected function getListfree($obj,$requeteSQL)
     {
-
         $var =[];
         $req =self::$_bdd->prepare($requeteSQL);
         $req->execute();
@@ -66,4 +65,5 @@ abstract class Model
         file_put_contents($jsonFile, $jsonData);
         $req->closeCursor();
     }
+
 }
