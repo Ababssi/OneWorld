@@ -12,23 +12,35 @@
         <table>
                 <tbody>
                         <th>
-                                <td><p>Population</p></td>
+                                <td><p class=" key poepl midInfo">Population</p></td>
                         </th>
                         <tr>
                                 <td><p>Moyennes</p></td>
-                                <td><p><?= round($totPop/$nbValeur,2)?></p></td>
+                                <td><p class=" val poepl midInfo"><?= round($totPop/$nbValeur,2)?></p></td>
                         </tr>
                 </tbody>
         </table>
 
 <main class="grid">
-<?php
-foreach ($city as $city): ?>
+        <?php
+        foreach ($city as $city): ?>
         <div class ="drapCell" style="--background:url(/sources/svg/<?= $city->CountryCode()?>.svg)">
-                <p>Name : <?= $city->Name() ?></p>  
-                <p>CountryCode : <?= $city->CountryCode() ?></p>    
-                <p>District : <?= $city->District() ?></p>
-                <p>Population : <?= $city->Population()?> hab</p>
+            <div>
+                    <p class="key nomina smlInfo">Name : </p>
+                    <p class="val nomina bigInfo"><?=$city->Name()?></p>
+            </div>
+            <div>
+                    <p class="key nomina smlInfo">CountryCode : </p>
+                    <p class="val nomina smlInfo"><?=$city->CountryCode()?></p>
+            </div>  
+            <div>
+                    <p class="key locatn midInfo">District : </p>
+                    <p class="val locatn bigInfo"><?=$city->District()?></p>
+            </div>
+            <div>
+                    <p class="key poepl midInfo">Population : </p>
+                    <p class="val poepl bigInfo"><?=$city->Population()?> hab</p>
+            </div>
         </div>
-<?php endforeach; ?>
+        <?php endforeach; ?>
 </main>
