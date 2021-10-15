@@ -41,7 +41,7 @@
         <?php
         
         foreach ($country as $country): ?>
-            <div class ="drapCell" style="--background:url(/sources/svg/<?=$country->Code()?>.svg)">  
+            <div class ="drapCell" style="--background:url(/sources/svg/<?=$country->Code()?>.svg)">
 
                 <section >
                   <div class="poepl" >
@@ -113,8 +113,8 @@
                      <p class="midInfo"><?= $country->GNPOld()?> </p>
                   </div>
                 </section>  
-       
-           </div>   
+                </div>  
+             
         <?php endforeach; ?>  
         
 </main>

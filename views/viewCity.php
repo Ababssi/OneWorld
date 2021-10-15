@@ -25,22 +25,32 @@
         <?php
         foreach ($city as $city): ?>
         <div class ="drapCell" style="--background:url(/sources/svg/<?= $city->CountryCode()?>.svg)">
-            <div>
-                    <p class="key nomina smlInfo">Name : </p>
-                    <p class="val nomina bigInfo"><?=$city->Name()?></p>
+
+        <section>  
+            <div class="locatn">
+                <p class="smlInfo">District : </p>
+                <p class="midInfo"><?=$city->District()?></p>
+            </div>
+        </section>  
+
+        <section>   
+            <div class="nomina">
+                <p class="midInfo">Name : </p>
+                <p class="vbigInfo"><?=$city->Name()?></p>
             </div>
             <div>
-                    <p class="key nomina smlInfo">CountryCode : </p>
-                    <p class="val nomina smlInfo"><?=$city->CountryCode()?></p>
+                <p class="smlInfo">CountryCode : </p>
+                <p class="midInfo"><?=$city->CountryCode()?></p>
             </div>  
-            <div>
-                    <p class="key locatn midInfo">District : </p>
-                    <p class="val locatn bigInfo"><?=$city->District()?></p>
+        </section>  
+
+        <section>   
+            <div class="poepl">
+                <p class="smlInfo">Population : </p>
+                <p class="midInfo"><?=$city->Population()?> hab</p>
             </div>
-            <div>
-                    <p class="key poepl midInfo">Population : </p>
-                    <p class="val poepl bigInfo"><?=$city->Population()?> hab</p>
-            </div>
+        </section>  
         </div>
+        
         <?php endforeach; ?>
 </main>

@@ -25,22 +25,37 @@
         <?php
         foreach ($countrylanguage as $countrylanguage): ?>
            <div class ="drapCell" style="--background:url(/sources/svg/<?= $countrylanguage->CountryCode()?>.svg)">
-                <div>
-                        <p class="key nomina midInfo"></p>
-                        <p class="val nomina bigInfo"><?= $countrylanguage->Language() ?></p>
+
+             
+
+              <section> 
+                <div class="locatn">
+                    <p class="smlInfo">CountryCode : </p>
+                    <p class="midInfo"><?= $countrylanguage->CountryCode() ?></p>    
                 </div>  
-                <div>
-                        <p class="key locatn smlInfo">CountryCode : </p>
-                        <p class="val locatn smlInfo"><?= $countrylanguage->CountryCode() ?></p>    
+              </section> 
+
+              <section> 
+                <div class="nomina">
+                    <p class="midInfo"></p>
+                    <p class="vbigInfo">The <?= $countrylanguage->Language() ?></p>
+                </div> 
+              </section>  
+
+              <section>
+                <div class="politc">                 
+                    <p class="midInfo">IsOfficial : </p>
+                    <p class="bigInfo"><?= $countrylanguage->IsOfficial() ?></p>
                 </div>  
-                <div>                 
-                        <p class="key politc midInfo">IsOfficial : </p>
-                        <p class="val politc bigInfo"><?= $countrylanguage->IsOfficial() ?></p>
+              </section>  
+
+              <section>
+                <div class="poepl">
+                    <p class="midInfo"></p>
+                    <p class="bigInfo"><?= $countrylanguage->Percentage()?>% </p>
                 </div>  
-                <div>
-                        <p class="key poepl midInfo"></p>
-                        <p class="val poepl bigInfo"><?= $countrylanguage->Percentage()?>% </p>
-                </div>            
-            </div>
+              </section>  
+              </div>        
+            
         <?php endforeach; ?>  
 </main>
