@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 :root{
 
     --a : #ffffff;
     --z : #5f99dbb9;
     --e : #5f99dbfa;
 
-    --locatn : rgb(137, 14, 141, 0.9);
-    --Peopl : rgb(137, 14, 141, 0.7);
-    --Econo : rgb(137, 14, 141, 0.5);
-    --Politc : rgb(137, 14, 141, 0.3);
-    --Nomina : rgb(137, 14, 141, 0.1);
+    --Peopl : rgb(108, 193, 250, 0.3);
+    --Locatn : rgba(108, 193, 250, 0.7);
+    --Nomina : rgb(108, 193, 250, 1);
+    --Politc : rgb(108, 193, 250, 0.7);
+    --Econo : rgb(108, 193, 250, 0.3);
 
     --Primary : rgb(108, 193, 250);
     --Border : rgb(61, 61, 61);
@@ -21,6 +21,7 @@ body{
     font-family: 'Roboto', sans-serif;
     min-height: 100vh;
     position: relative;
+    background-color: rgb(199, 199, 199);
 }
 header{
     text-align: center;
@@ -73,7 +74,7 @@ h3{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     border-radius: 63% 37% 56% 44% / 30% 69% 31% 70% ;
     /*border: 0px solid rgb(34, 34, 34);*/
     /*box-shadow: 0px 0px 7px 4px var(--ombreCar);*/
@@ -81,9 +82,26 @@ h3{
 }
 .drapCell:hover{
     transition: 0.4s;
-    background-position: -13px 217px;
+    background-position: 20px 240px;
     border-radius: 18% 82% 20% 80% / 82% 13% 87% 18% ;
     background-color: rgba(81, 188, 246, 0.541);
+}
+.drapCell section{
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.drapCell div{
+  padding: 2px;
+  text-align: center;
+  border-radius: 20px;
+  border: 0px solid #222;
+  transition: 0.3s;
+}
+.drapCell div:hover{
+  transition: 0.3s;
+  transform: scale(1.1);
 }
 .icon{
 	width: 3rem;
@@ -111,7 +129,7 @@ h3{
     border-radius: 18% 82% 20% 80% / 82% 13% 87% 18% ;
 }
 p{
-    margin: 2px;
+    margin: 0px;
     font-size: 12px;
     color:rgb(75, 75, 75) ;
     font-weight: 900;
@@ -165,13 +183,11 @@ select{
   margin: 1px;
   display: inline-flex;
   color: #222;
-  border: 1px solid #fff;
 }
 .val{
   margin: 1px;
   display: inline-flex;
-  color: #222;
-  border: 1px solid #fff;
+  color: #fff;
 }
 .locatn{
   background: var(--Locatn);
@@ -188,21 +204,31 @@ select{
 .nomina{
   background: var(--Nomina);
 }
+.vbigInfo{
+  font-size: clamp(17px, 3.5vw, 21px);
+  padding: 1px 2px;
+  border-radius: 6px;
+  font-weight: 1000;
+}
 .bigInfo{
   font-size: clamp(12px, 3.5vw, 15px);
   padding: 1px 2px;
   border-radius: 6px;
+  font-weight: 800;
 }
 .midInfo{
   font-size: clamp(9px, 3.5vw, 12px);
   padding: 1px 2px;
   border-radius: 4px;
+  font-weight: 600;
 }
-.smlinfo{
+.smlInfo{
   font-size: clamp(6px, 2.5vw, 9px);
   padding: 1px 2px;
-  border-radius: 2px;
+  text-decoration: underline rgba(87, 87, 87, 0.479); 
+  font-weight: 400;
 }
+
 
 
 .imgSelect{
@@ -233,15 +259,12 @@ footer{
     background: var(--Primary);
     text-align: center;
     line-height: 45px;
-
 }
 footer a{
     color: #fff;
     font-weight: 900;
 }
-
 th,td {
-    border: 2px solid #222;
     border-radius: 5px;
     background:var(--Primary) ;
 }

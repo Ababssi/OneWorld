@@ -19,20 +19,21 @@
         ?>
         <table>
             <tbody>
-                <th>
-                    <td><p class="key locatn midInfo">Surface</p></td>
-                    <td><p class="key poepl midInfo">Population</p></td>
-                    <td><p class="key poepl midInfo">Espérance de vie</p></td>
-                    <td><p class="key econo midInfo">GNP</p></td>
-                    <td><p class="key econo midInfo">GNPOld</p></td>
-                </th>
                 <tr>
-                    <td><p>Moyennes</p></td>
-                    <td><p class="key locatn midInfo"><?= round($totSuf/$nbValeur,2)?></p></td>
-                    <td><p class="key poepl midInfo"><?= round($totPop/$nbValeur,2)?></p></td>
-                    <td><p class="key poepl midInfo"><?= round($totLif/$nbValeur,2)?></p></td>
-                    <td><p class="key econo midInfo"><?= round($totGnp/$nbValeur,2)?></p></td>
-                    <td><p class="key econo midInfo"><?= round($totGnpOld/$nbValeur,2)?></p></td>
+                    <td><p>résulat <?= $nbValeur ?></p></td>
+                    <td><p class="key">Surface</p></td>
+                    <td><p class="key">Population</p></td>
+                    <td><p class="key">Espérance de vie</p></td>
+                    <td><p class="key">GNP</p></td>
+                    <td><p class="key">GNPOld</p></td>
+                </tr>
+                <tr>
+                    <td><p class="key">Moyennes</p></td>
+                    <td><p class="val"><?= round($totSuf/$nbValeur,2)?></p></td>
+                    <td><p class="val"><?= round($totPop/$nbValeur,2)?></p></td>
+                    <td><p class="val"><?= round($totLif/$nbValeur,2)?></p></td>
+                    <td><p class="val"><?= round($totGnp/$nbValeur,2)?></p></td>
+                    <td><p class="val"><?= round($totGnpOld/$nbValeur,2)?></p></td>
                 </tr>
             </tbody>
         </table>
@@ -42,60 +43,78 @@
         foreach ($country as $country): ?>
             <div class ="drapCell" style="--background:url(/sources/svg/<?=$country->Code()?>.svg)">  
 
-                <div>                   
-                   <p class="key nomina midInfo">Name : </p>
-                   <p class="val nomina bigInfo"><?= $country->NameCountry()?></p>
-                </div>    
-                <div>
-                   <p class="key nomina midInfo">LocalName : </p>
-                   <p class="val nomina bigInfo"><?= $country->LocalName()?></p>
-                </div>   
-                <div>
-                   <p class="key nomina smlInfo">Code2 : </p>
-                   <p class="val nomina smlInfo"><?= $country->Code2()?> </p>
-                   <p class="key nomina smlInfo">Code3 : </p>
-                   <p class="val nomina smlInfo"><?= $country->Code() ?></p> 
-                </div>    
-                <div>                    
-                   <p class="key locatn smlInfo">Continent : </p>
-                   <p class="val locatn midInfo"><?= $country->Continent()?></p>
-                   <p class="key locatn smlInfo">Region : </p>
-                   <p class="val locatn midInfo"><?= $country->Region()?></p>
-                </div>  
-                <div>
-                   <p class="key locatn smlInfo">Surface : </p>
-                   <p class="val locatn midInfo"><?= $country->Surface() ?> </p>
-                </div>  
-                <div>
-                   <p class="key poepl midInfo">Population : </p>
-                   <p class="val poepl bigInfo"><?= $country->Population()?> </p>
-                </div>  
-                <div>   
-                   <p class="key poepl midInfo">LifeExpectancy : </p>
-                   <p class="val poepl bigInfo"><?= $country->LifeExpectancy()?></p>
-                </div>  
-                <div>
-                   <p class="key econo midInfo">GNP : </p>
-                   <p class="val econo bigInfo"><?= $country->GNP() ?> </p>
-                   <p class="key econo smlInfo">GNPOld : </p>
-                   <p class="val econo midInfo"><?= $country->GNPOld()?> </p>
-                </div>  
-                <div>
-                   <p class="key politc smlInfo">IndepYear : </p>
-                   <p class="val politc midInfo"><?= $country->IndepYear() ?></p>   
-                </div>  
-                <div>
-                   <p class="key politc smlInfo">Gov : </p>
-                   <p class="val politc midInfo"><?= $country->GovernmentForm() ?></p>  
-                </div>  
-                <div>  
-                   <p class="key politc smlInfo">HeadOfState: </p>
-                   <p class="val politc midInfo"><?= $country->HeadOfState()?></p>
-                </div>  
+                <section >
+                  <div class="poepl" >
+                     <p class="smlInfo">Population </p>
+                     <p class="bigInfo"><?= $country->Population()?> </p>
+                  </div>
+                  <div class="poepl">
+                     <p class="smlInfo">LifeExpectancy </p>
+                     <p class="bigInfo"><?= $country->LifeExpectancy()?></p>
+                  </div>
+                </section>  
 
+                <section >    
+                  <div class="locatn">
+                     <p class="smlInfo">Region </p>
+                     <p class="midInfo"><?= $country->Region()?></p>
+                  </div>
+                  <div class="locatn">                
+                     <p class="smlInfo">Continent </p>
+                     <p class="bigInfo"><?= $country->Continent()?></p>
+                  </div>
+                  <div class="locatn">
+                     <p class="smlInfo">Surface </p>
+                     <p class="midInfo"><?= $country->Surface() ?> </p>
+                  </div>
+                </section>  
 
-                
+                <section> 
+                  <div class="nomina">
+                     <p class="smlInfo">LocalName </p>
+                     <p class="midInfo"><?= $country->LocalName()?></p>
+                  </div>
+                  <div class="nomina">
+                     <p class="smlInfo">Name </p>
+                     <p class="vbigInfo"><?= $country->NameCountry()?></p>
+                  </div>
+                  <div class="nomina">
+                     <p class="smlInfo">Code2 </p>
+                     <p class="midInfo"><?= $country->Code2()?> </p>
+                  </div>
+                  <div class="nomina">
+                     <p class="smlInfo">Code3 </p>
+                     <p class="midInfo"><?= $country->Code() ?></p>
+                  </div> 
+                </section>
+
+                <section>
+                  <div class="politc">
+                     <p class="smlInfo">IndepYear </p>
+                     <p class="midInfo"><?= $country->IndepYear() ?></p>  
+                  </div>
+                  <div class="politc"> 
+                     <p class="smlInfo">Gov </p>
+                     <p class="midInfo"><?= $country->GovernmentForm() ?></p>
+                  </div>
+                  <div class="politc">  
+                     <p class="smlInfo">HeadOfState </p>
+                     <p class="midInfo"><?= $country->HeadOfState()?></p>
+                   </div> 
+                </section>  
+
+                <section>
+                  <div class="econo">
+                     <p class="smlInfo">GNP </p>
+                     <p class="bigInfo"><?= $country->GNP() ?> </p>
+                  </div>
+                  <div class="econo">
+                     <p class="smlInfo">GNPOld </p>
+                     <p class="midInfo"><?= $country->GNPOld()?> </p>
+                  </div>
+                </section>  
+       
            </div>   
         <?php endforeach; ?>  
-        <p>Nombre de résulat : <?= $nbValeur ?></p>
+        
 </main>
