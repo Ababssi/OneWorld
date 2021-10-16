@@ -19,9 +19,9 @@
         <h3>Des infos sur </h3>
         <main id="accueil">
             <section class="navGrid">
-                <a class="navCell cell1" id="cardcity" href="http://oneworld.cyberdevweb.fr/index.php?url=city">Une ville</a>
-                <a class="navCell cell2" id="cardcoun" href="http://oneworld.cyberdevweb.fr/index.php?url=country">Un pays</a>
-                <a class="navCell cell3" id="cardlang" href="http://oneworld.cyberdevweb.fr/index.php?url=countrylanguage">Une langue</a>
+                <div class="navCell cell1" id="cardcity" href="http://oneworld.cyberdevweb.fr/index.php?url=city">Une ville</div>
+                <div class="navCell cell2" id="cardcoun" href="http://oneworld.cyberdevweb.fr/index.php?url=country">Un pays</div>
+                <div class="navCell cell3" id="cardlang" href="http://oneworld.cyberdevweb.fr/index.php?url=countrylanguage">Une langue</div>
             </section>
 
             <section class="rech">
@@ -147,9 +147,8 @@
             <!-------------------------------------------------------------------------------------------->
         <?= $content ?>               
         <footer>
-            <p class="rh4">base de donnée datant de 1995 </p>
-            <a  class="rh4" href="abasop1@gmail.com">Sophien ABABSSI</a>
-            <a  class="rh4" href="svgChangeName.php">Modifier fichier svg</a>
+            <p class="val midInfo">base de donnée datant de 1999 </p>
+            <a  class="val midInfo" href="abasop1@gmail.com">Sophien ABABSSI</a>
         </footer>
         <script src="app.js"></script>
 

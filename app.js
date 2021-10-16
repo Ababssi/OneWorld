@@ -74,7 +74,7 @@ let sBarLang = document.getElementById('rechLangue');
 let cardCity = document.getElementById('cardcity');
 let cardCoun = document.getElementById('cardcoun');
 let cardLang = document.getElementById('cardlang');
-cardCity.addEventListener("mouseover",function ()
+cardCity.addEventListener("click",function ()
 {
 	sBarCity.style.display = "block";
 	cardCity.classList.toggle('cellSelected');
@@ -83,7 +83,7 @@ cardCity.addEventListener("mouseover",function ()
 	sBarLang.style.display = "none";
 	cardLang.classList.remove('cellSelected');
 });
-cardCoun.addEventListener("mouseover",function ()
+cardCoun.addEventListener("click",function ()
 {
 	sBarCoun.style.display = "block";
 	cardCoun.classList.toggle('cellSelected');
@@ -92,7 +92,7 @@ cardCoun.addEventListener("mouseover",function ()
 	sBarLang.style.display = "none";
 	cardLang.classList.remove('cellSelected');
 });
-cardLang.addEventListener("mouseover",function ()
+cardLang.addEventListener("click",function ()
 {
 	sBarLang.style.display = "block";
 	cardLang.classList.toggle('cellSelected');
