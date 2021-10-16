@@ -9,8 +9,8 @@
     --Locatn : rgba(108, 193, 250, 0.7);
     --Nomina : rgb(108, 193, 250, 1);
     --Politc : rgb(108, 193, 250, 0.7);
-    --Econo : rgb(108, 193, 250, 0.3);
 
+    --Econo : rgb(108, 193, 250, 0.3);
     --Primary : rgb(108, 193, 250);
     --Border : rgb(61, 61, 61);
     --FondCell : rgb(167, 218, 252);
@@ -21,7 +21,6 @@ body{
     font-family: 'Roboto', sans-serif;
     min-height: 100vh;
     position: relative;
-    background-color: rgb(199, 199, 199);
 }
 header{
     text-align: center;
@@ -157,18 +156,19 @@ label{
     font-weight: 900;
 }
 button{
-    border: 2px solid var(--Primary);
-    background: #fff;
-    color: var(--Primary);
+    color: #222;
+    font-weight: 600;
+    background: var(--Primary);
     padding: 2px 5px;
     margin: 0px auto 8px;
+    border: none;
+    border-radius: 5px;
 }
 select{
     margin: 8px auto;
     width: 100%;
-    border: 2px solid var(--Border);
-    background: var(--Primary);
-    color: #fff;
+    border: 2px solid var(--Border); 
+    color: #222;
     padding: 2px 5px;
     border-radius: 5px;
 }
