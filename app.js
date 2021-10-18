@@ -30,7 +30,6 @@ function afficheRech1()
 	if (ByPopuFrCount!=="*"){lien+='/country.Population>:'+ByPopuFrCount;}
 
 	window.location.href = lien;
-	
 }
 //-----------------------------------------city-----------------------------------
 function afficheRech2()
@@ -130,13 +129,12 @@ new TomSelect('#select-country',{
 		option: function(item, escape) {
 			return `<div class="containSelect">					 		 	
 						<img class="imgSelect" src="/sources/svg/${ escape(item.Code) }.svg" alt="drapeau">						
-						<p class="rh3">${ escape(item.NameCountry) }</p>							
-						<p class="rh4">${ escape(item.Name) }</p>				
-						<p class="rh4">${ escape(item.Continent) }</p>			
-						<p class="rh5">${ escape(item.Population) } ppl</p> 				
-						<p class="rh5">${ escape(item.SurfaceArea) } km²</p>							
+						<p class="rh1">${ escape(item.NameCountry) }</p>							
+						<p class="rh1">${ escape(item.Name) }</p>				
+						<p class="rh1">${ escape(item.Continent) }</p>			
+						<p class="rh1">${ escape(item.Population) } ppl</p> 				
+						<p class="rh1">${ escape(item.SurfaceArea) } km²</p>							
 					</div>`;
-
 		}
 	},
 });

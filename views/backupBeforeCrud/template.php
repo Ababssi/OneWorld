@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
-    <head>     
+    <head>
+        
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,12 +12,12 @@
     </head>
 
     <body>    
+        
         <header>
                 <h1>OneWorld</h1>
         </header>
         <h3>Des infos sur </h3>
         <main id="accueil">
-            
             <section class="navGrid">
                 <div class="navCell cell1" id="cardcity" href="http://oneworld.cyberdevweb.fr/index.php?url=city">Une ville</div>
                 <div class="navCell cell2" id="cardcoun" href="http://oneworld.cyberdevweb.fr/index.php?url=country">Un pays</div>
@@ -25,7 +25,7 @@
             </section>
 
             <section class="rech">
-            <!----------------------------------Country----------------------------------->
+            <!-----------------------------------------------Country------------------------------------------------>
                 <div id ="rechCountry" class="searchBarNone" >
 
                     <div class="select">
@@ -147,9 +147,8 @@
             <!-------------------------------------------------------------------------------------------->
         <?= $content ?>               
         <footer>
-            <p class="val midInfo">base de donnée datant de 1995 </p>
-            <a class="val midInfo" href="abasop1@gmail.com">Sophien ABABSSI</a>
-            <!--<a class="val midInfo" href="svgChangeName.php">Modifier fichier svg</a> -->
+            <p class="val midInfo">base de donnée datant de 1999 </p>
+            <a  class="val midInfo" href="abasop1@gmail.com">Sophien ABABSSI</a>
         </footer>
         <script src="app.js"></script>
 
