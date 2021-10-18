@@ -3,18 +3,18 @@
 function ficheCountry()
 {
 	let rechP = document.getElementById('select-country').value;
-	window.location.href = 'http://oneworld.cyberdevweb.fr/index.php?url=country/country.NameCountry:'+rechP;
+	window.location.href = 'http://oneworld.cyberdevweb.fr/index.php?url=country/read/country.NameCountry:'+rechP;
 }
 function ficheCity()
 {
 	let rechV = document.getElementById('select-city').value;
-	window.location.href = 'http://oneworld.cyberdevweb.fr/index.php?url=city/city.Name:'+rechV;
+	window.location.href = 'http://oneworld.cyberdevweb.fr/index.php?url=city/read/city.Name:'+rechV;
 	//document.getElementById('debugCity').textContent = rechV;
 }
 function ficheLang()
 {
 	let rechL = document.getElementById('select-language').value;
-	window.location.href = 'http://oneworld.cyberdevweb.fr/index.php?url=countrylanguage/countrylanguage.Language:'+rechL;
+	window.location.href = 'http://oneworld.cyberdevweb.fr/index.php?url=countrylanguage/read/countrylanguage.Language:'+rechL;
 }
 //---------------------------------------country-----------------------------------
 function afficheRech1()
@@ -23,7 +23,7 @@ function afficheRech1()
 	let ByContFrCount = document.getElementById('selectByContForCountry').value;
 	let ByPopuFrCount = document.getElementById('selectByPopuForCountry').value;
 
-	lien = 'http://oneworld.cyberdevweb.fr/index.php?url=country';
+	lien = 'http://oneworld.cyberdevweb.fr/index.php?url=country/read';
 
 	if (ByLangFrCount){lien+='/countrylanguage.Language:'+ByLangFrCount;}
 	if (ByContFrCount!=="*"){lien+='/country.Continent:'+ByContFrCount;}
@@ -38,7 +38,7 @@ function afficheRech2()
 	let ByPoFrCity = document.getElementById('selectByPopuForCity').value;
 	let ByCoFrCity = document.getElementById('selectByCoun').value;
 
-	lien = 'http://oneworld.cyberdevweb.fr/index.php?url=city';
+	lien = 'http://oneworld.cyberdevweb.fr/index.php?url=city/read';
 
 	if (ByCtFrCity!=="*"){lien+='/country.Continent:'+ByCtFrCity;}
 	if (ByPoFrCity!=="*"){lien+='/city.Population>:'+ByPoFrCity;}
@@ -53,7 +53,7 @@ function afficheRech3()
 	let ByOffFrLang = document.getElementById('selectByOff').value;
 	let ByCountFrLang = document.getElementById('selectByCoun2').value;
 
-	lien = 'http://oneworld.cyberdevweb.fr/index.php?url=countrylanguage';
+	lien = 'http://oneworld.cyberdevweb.fr/index.php?url=countrylanguage/read';
 	
 	if (ByCtFrLang!=="*"){lien+='/country.Continent:'+ByCtFrLang;}
 	if (ByOffFrLang!=="*"){lien+='/IsOfficial:'+ByOffFrLang;}

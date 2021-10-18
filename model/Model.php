@@ -38,5 +38,4 @@ abstract class Model
         file_put_contents($jsonFile, $jsonData);
         $req->closeCursor();
     }
-
 }

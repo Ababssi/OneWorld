@@ -7,13 +7,30 @@ class ControllerCountrylanguage
 
     public function __construct($crit)
     {
+        $crud = ucfirst(strtolower(array_shift($crit)));
         $list=self::urlToArray($crit);
-        $this->sendToModelAndView(self::arrayToRequestForView($list));
-        //$this->sendToModelThenJsonForLanguage();
+
+        switch ($crud) 
+        {
+            case 'dele':              
+                $this->deleToModelAndView($list);             
+                break;
+            case 'upda':            
+                $this->updaToModelAndView($list);               
+                break;
+            case 'crea':               
+                $this->creaToModelAndView($list);               
+                break;          
+            default:              
+                $this->readToModelAndView($list);
+                //$this->sendToModelThenJsonForCountry();         
+                break;
+        }
+
     }
     
-    //on recupère les critères de séléction contenu dans crit
-    //on les ordonne dans une liste indexée 
+    // on recupère les critères de séléction contenu dans crit
+    // on les ordonne dans une liste indexée 
     public static function urlToArray($crit)
     {
         $expUrl=[];
@@ -25,33 +42,56 @@ class ControllerCountrylanguage
         return $listAttValue;
     }
 
-    //fonction controlleur lien entre le Model et la View
-    private function sendToModelAndView($reqsql)
+    //CREATE
+    // on appelle un fonction de creation 
+    // puis on envoie la vue avec un message de comfirmation "creation faite"
+    private function creaToModelAndView($tabAsso)
     {
         $this->countrylanguageManager = new CountrylanguageManager;
-        $countrylanguage = $this->countrylanguageManager->getLanguefree($reqsql);
+        $countrylanguage = $this->countrylanguageManager->getLanguefree($tabAsso);
         $this->view = new View('Countrylanguage');
         $this->view->generate(array('countrylanguage'=> $countrylanguage)); 
     }
 
-    //on assemble la requete SQL depuis une liste indéxée
-    public static function arrayToRequestForView($tabAsso)
+    //READ
+    // on appelle un fonction de lecture (inclus les filtres)
+    // puis on envoie la vue avec un message de comfirmation "voici votre recherche"
+    private function readToModelAndView($tabAsso)
     {
-        $request = "SELECT DISTINCT * FROM `countrylanguage`,`country` WHERE countrylanguage.CountryCode=country.Code  AND ";
-        foreach ($tabAsso as $key => $value) {
-            $request .= " ".$key."='".$value."' AND "; 
-        }
-        $request = substr($request, 0, -5);
-        $request .= " ORDER BY countrylanguage.Language";
-        return $request;
+        $this->countrylanguageManager = new CountrylanguageManager;
+        $countrylanguage = $this->countrylanguageManager->getLanguefree($tabAsso);
+        $this->view = new View('Countrylanguage');
+        $this->view->generate(array('countrylanguage'=> $countrylanguage)); 
+    }
+
+    //UPDATE
+    // on appelle un fonction de lecture (inclus les filtres)
+    // puis on envoie la vue avec un message de comfirmation "voici votre recherche"
+    private function updaToModelAndView($tabAsso)
+    {
+        $this->countrylanguageManager = new CountrylanguageManager;
+        $countrylanguage = $this->countrylanguageManager->getLanguefree($tabAsso);
+        $this->view = new View('Countrylanguage');
+        $this->view->generate(array('countrylanguage'=> $countrylanguage)); 
+    }
+
+    //DELETE
+    // on appelle un fonction de lecture (inclus les filtres)
+    // puis on envoie la vue avec un message de comfirmation "voici votre recherche"
+    private function deleToModelAndView($tabAsso)
+    {
+        $this->countrylanguageManager = new CountrylanguageManager;
+        $countrylanguage = $this->countrylanguageManager->getLanguefree($tabAsso);
+        $this->view = new View('Countrylanguage');
+        $this->view->generate(array('countrylanguage'=> $countrylanguage)); 
     }
 
     //on envoie la requete SQL qui generera un json dans la classe Model
     private function sendToModelThenJsonForLanguage()
     {
         $this->countrylanguageManager = new CountrylanguageManager;
-        $this->countrylanguageManager->getListToManagerForJson("SELECT countrylanguage.Language,countrylanguage.percentage,countrylanguage.IsOfficial,country.NameCountry,country.Code FROM `countrylanguage`,`country` WHERE countrylanguage.CountryCode=country.Code ");
+        $this->countrylanguageManager->getListToManagerForJson();
     }
-
+    
 }
 

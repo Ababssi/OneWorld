@@ -19,9 +19,9 @@
         <main id="accueil">
             
             <section class="navGrid">
-                <div class="navCell cell1" id="cardcity" href="http://oneworld.cyberdevweb.fr/index.php?url=city">Une ville</div>
-                <div class="navCell cell2" id="cardcoun" href="http://oneworld.cyberdevweb.fr/index.php?url=country">Un pays</div>
-                <div class="navCell cell3" id="cardlang" href="http://oneworld.cyberdevweb.fr/index.php?url=countrylanguage">Une langue</div>
+                <div class="navCell cell1" id="cardcity" href="http://oneworld.cyberdevweb.fr/index.php?url=city/read">Une ville</div>
+                <div class="navCell cell2" id="cardcoun" href="http://oneworld.cyberdevweb.fr/index.php?url=country/read">Un pays</div>
+                <div class="navCell cell3" id="cardlang" href="http://oneworld.cyberdevweb.fr/index.php?url=countrylanguage/read">Une langue</div>
             </section>
 
             <section class="rech">
@@ -55,8 +55,8 @@
                             <option value="*">Par Population</option>
                             <option value="2000000"> plus de 2M </option>
                             <option value="5000000"> plus de 10M </option>
-                            <option value="10000000"> plus de 50M </option>
-                            <option value="50000000"> plus de 100M </option>
+                            <option value="10000000"> plus de 10M </option>
+                            <option value="50000000"> plus de 50M </option>
                             <option value="100000000"> plus de 100M </option>
                             <option value="800000000"> plus de 800M </option>
                         </select>
@@ -91,8 +91,8 @@
                         <select id="selectByPopuForCity" name ="selectByPopuForCity" placeholder="Par Tranche de Population" value="all">
                             <option value="*">Par Population</option>
                             <option value="200000">plus de 200k</option>
-                            <option value="500000">plus de 1M</option>
-                            <option value="1000000">plus de 5M</option>
+                            <option value="500000">plus de 500k</option>
+                            <option value="1000000">plus de 1M</option>
                             <option value="5000000">plus de 5M</option>
                             <option value="10000000">plus de 10M</option>
                         </select>
