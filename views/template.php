@@ -13,7 +13,8 @@
 
     <body>    
         <header>
-                <h1>OneWorld</h1>
+                <h1>OneWorld</h1>       
+                <canvas id="canvas"></canvas>
         </header>
         <h3>Des infos sur </h3>
         <main id="accueil">
@@ -148,9 +149,12 @@
         <?= $content ?>               
         <footer>
             <p class="val midInfo">base de donnée datant de 1995 </p>
-            <a class="val midInfo" href="abasop1@gmail.com">Sophien ABABSSI</a>
+            <a class="val midInfo" href="abasop1@gmail.com">Par Sophien ABABSSI</a>
+            <a href="" class="val midInfo">session de <?php echo $_SESSION['login']?></a>
+            <a href="logout.php" class="val midInfo">Deconnexion</a>
             <!--<a class="val midInfo" href="svgChangeName.php">Modifier fichier svg</a> -->
         </footer>
+        <script type="module" src="main.js"></script>
         <script src="app.js"></script>
 
     </body>

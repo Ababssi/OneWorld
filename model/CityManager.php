@@ -1,6 +1,7 @@
 <?php
     class CityManager extends Model
     {
+
         public function getCity($crit)
         {
             $this-> getBdd();
@@ -30,7 +31,7 @@
             $request = substr($request, 0, -5);
             $request .= " ORDER BY city.Name";
             return $request;
-        }  
+        }
 
         public function getListToManagerForJson()
         {

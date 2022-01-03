@@ -15,7 +15,6 @@
     --Primarylight : rgba(108, 193, 250, 0.5);
     --Border : rgb(61, 61, 61);
     --FondCell : rgb(167, 218, 252);
-    
 }
 body{
     margin: 0;
@@ -26,7 +25,15 @@ body{
     background-color: #fff;
 }
 header{
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+canvas{
+  width: 350px;
+  height: 350px;
 }
 h1{
     font-size: clamp(60px, 6vw, 120px);

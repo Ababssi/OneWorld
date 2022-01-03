@@ -92,6 +92,6 @@ class ControllerCountrylanguage
         $this->countrylanguageManager = new CountrylanguageManager;
         $this->countrylanguageManager->getListToManagerForJson();
     }
-    
+
 }
 

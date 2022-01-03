@@ -26,11 +26,10 @@ class ControllerCity
                 //$this->sendToModelThenJsonForCountry();         
                 break;
         }
-
     }
 
-    // on recupère les critères de séléction contenu dans crit
-    // on les ordonne dans une liste indexée 
+    //on recupère les critères de séléction contenu dans crit
+    //on les ordonne dans une liste indexée 
     public static function urlToArray($crit)
     {
         $expUrl=[];
@@ -45,10 +44,10 @@ class ControllerCity
     //CREATE
     // on appelle un fonction de creation 
     // puis on envoie la vue avec un message de comfirmation "creation faite"
-    private function creaToModelAndView($tabAsso)
+    private function creaToModelAndView($reqsql)
     {
         $this->cityManager = new CityManager;
-        $city = $this->cityManager->getCityfree($tabAsso);
+        $city = $this->cityManager->getCityfree($reqsql);
         $this->view = new View('City');
         $this->view->generate(array('city'=> $city)); 
     }
@@ -56,10 +55,10 @@ class ControllerCity
     //READ
     // on appelle un fonction de lecture (inclus les filtres)
     // puis on envoie la vue avec un message de comfirmation "voici votre recherche"
-    private function readToModelAndView($tabAsso)
+    private function readToModelAndView($reqsql)
     {
         $this->cityManager = new CityManager;
-        $city = $this->cityManager->getCityfree($tabAsso);
+        $city = $this->cityManager->getCityfree($reqsql);
         $this->view = new View('City');
         $this->view->generate(array('city'=> $city)); 
     }
@@ -67,21 +66,22 @@ class ControllerCity
     //UPDATE
     // on appelle un fonction de mise a jour, modification
     // puis on envoie la vue avec un message de comfirmation "modification faite"
-    private function updaToModelAndView($tabAsso)
+    private function updaToModelAndView($reqsql)
     {
         $this->cityManager = new CityManager;
-        $city = $this->cityManager->getCityfree($tabAsso);
+        $city = $this->cityManager->getCityfree($reqsql);
         $this->view = new View('City');
-        $this->view->generate(array('city'=> $city)); 
+        $this->view->generate(array('city'=> $city));
     }
 
     //DELETE
     // on appelle un fonction de suppression
     // puis on envoie la vue avec un message de comfirmation "element retiré"
-    private function deleToModelAndView($tabAsso)
+    //fonction controlleur lien entre le Model et la View
+    private function deleToModelAndView($reqsql)
     {
         $this->cityManager = new CityManager;
-        $city = $this->cityManager->getCityfree($tabAsso);
+        $city = $this->cityManager->getCityfree($reqsql);
         $this->view = new View('City');
         $this->view->generate(array('city'=> $city)); 
     }

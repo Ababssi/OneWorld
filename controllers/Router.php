@@ -15,12 +15,13 @@ class Router
                 require_once('model/'.$class.'.php'); 
             });
             $url = [];
-            $select="";
 
             if(isset($_GET['url']))
             {
+                
                 if (!empty($_GET['url'])) {
-                    $url = explode('/', filter_var($_GET['url']));        
+                    $url = explode('/', filter_var($_GET['url']));   
+                    //on recupère le premier element du tableau $url tout en le supprimant de celui-ci      
                     $controller = ucfirst(strtolower(array_shift($url)));
                     $controllerClass = "Controller".$controller;
                     $controllerFile = "controllers/".$controllerClass.".php";              
@@ -37,7 +38,7 @@ class Router
                     $this->_ctrl = new ControllerAccueil($url);
                 }                            
             }
-            else throw new Exception('Lancez une recherche !'); 
+            else throw new Exception('Cliquez sur Une ville, Un pays ou Une Langue pour lancer une recherche !'); 
         }
         //GESTION DES ERREURS
         catch(Exception $e)

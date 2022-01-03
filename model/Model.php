@@ -1,4 +1,5 @@
 <?php
+require_once('User.php');
 abstract class Model
 {
     private static $_bdd;
@@ -13,6 +14,31 @@ abstract class Model
             $this->setBdd();
         return self::$_bdd;
     }
+    protected function getAll($table, $obj, $Id, $crit)
+    {
+        $var =[];
+        $req =self::$_bdd->prepare('SELECT '.$crit.' FROM ' .$table.' ORDER BY '.$Id);
+        $req->execute();
+        while ($data =$req->fetch(PDO::FETCH_ASSOC))
+        {
+            $var[] = new $obj($data);  
+        }
+        return $var;
+        $req->closeCursor();
+    }
+    protected function getOne($table, $obj, $crit)
+    {
+        $var =[];
+        $req =self::$_bdd->prepare('SELECT DISTINCT '.$crit.' FROM ' .$table.' ORDER BY '.$crit);
+        $req->execute();
+        while ($data =$req->fetch(PDO::FETCH_ASSOC))
+        {
+            $var[] = new $obj($data);
+        }
+        return $var;
+        $req->closeCursor();
+    }
+
     protected function getListfree($obj,$requeteSQL)
     {
         $var =[];
@@ -25,6 +51,23 @@ abstract class Model
         return $var;
         $req->closeCursor();
     }
+
+    protected function getConnect($obj, $requestSQL)
+    {
+        $req =self::$_bdd->prepare($requestSQL);
+        $req->execute();
+        $data = $req->fetch(PDO::FETCH_ASSOC);
+        if($data)
+        {
+            $var = new $obj($data);  
+            return $var;
+            $req->closeCursor();
+        }
+        else{ 
+            return -1;
+        }
+    }
+
     protected function getListToModelForJson($jsonFile,$requeteSQL)
     {
         $tabData = array();

@@ -26,7 +26,7 @@ class ControllerCountry
                 //$this->sendToModelThenJsonForCountry();         
                 break;
         }
-
+        
     }
 
     // on recupère les critères de séléction contenu dans crit
@@ -48,7 +48,8 @@ class ControllerCountry
     private function creaToModelAndView($tabasso)
     {
         $this->countryManager = new CountryManager;
-        $country = $this->countryManager->getCountfree($tabasso);      
+        $country = $this->countryManager->getCountfree($tabasso);
+        
         $this->view = new View('Country');
         $this->view->generate(array('country'=> $country));
     }
@@ -59,7 +60,8 @@ class ControllerCountry
     private function readToModelAndView($tabasso)
     {
         $this->countryManager = new CountryManager;
-        $country = $this->countryManager->getCountfree($tabasso);      
+        $country = $this->countryManager->getCountfree($tabasso);
+        
         $this->view = new View('Country');
         $this->view->generate(array('country'=> $country));
     }
@@ -70,7 +72,8 @@ class ControllerCountry
     private function updaToModelAndView($tabasso)
     {
         $this->countryManager = new CountryManager;
-        $country = $this->countryManager->getCountfree($tabasso);     
+        $country = $this->countryManager->getCountfree($tabasso);
+        
         $this->view = new View('Country');
         $this->view->generate(array('country'=> $country));
     }
@@ -82,6 +85,7 @@ class ControllerCountry
     {
         $this->countryManager = new CountryManager;
         $country = $this->countryManager->getCountfree($tabasso);  
+
         $this->view = new View('Country');
         $this->view->generate(array('country'=> $country));
     }
