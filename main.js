@@ -1,24 +1,27 @@
+  
   import * as THREE from 'https://cdn.skypack.dev/pin/three@v0.134.0-dfARp6tVCbGvQehLfkdx/mode=imports/optimized/three.js';
-  //import * as THREE from 'three';
+
   import atmosfragmentShader from './shaders/atmosphereFragment.glsl.js';
   import vertexShader from './shaders/vertex.glsl.js';
   import fragmentShader from './shaders/fragment.glsl.js';
   import atmosvertexShader from './shaders/atmosphereVertex.glsl.js';
 
   const canvasContainer = document.querySelector('#canvas')
+
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75,canvasContainer.offsetWidth/canvasContainer.offsetHeight,0.1,1000)
+  const camera = new THREE.PerspectiveCamera(75,
+            canvasContainer.offsetWidth/canvasContainer.offsetHeight,0.1,1000)
+
   const renderer = new THREE.WebGLRenderer({
     alpha: true,
     antilias: true,
     canvas: document.querySelector('canvas')
   })
-
   renderer.setSize(canvasContainer.offsetWidth, canvasContainer.offsetHeight)
-  // renderer.setPixelRatio(window.devicePixelRatio)
   renderer.setPixelRatio(devicePixelRatio)
 
   const boxGeometry = new THREE.SphereGeometry(5,50,50)
+
   const material = new THREE.ShaderMaterial({
     vertexShader,
     fragmentShader,
@@ -80,16 +83,12 @@
   //scene.add(planeMesh)
 
   const light = new THREE.DirectionalLight(0xffffff,1)
+
   light.position.set(0,0,1)
+  
   scene.add(light)
 
 document.addEventListener('mousemove',onDocumentMouseMove)
-
-let mouseX = 0;
-let mouseY = 0;
-
-let targetX = 0;
-let targetY = 0;
 
 const windowX = window.innerWidth / 2;
 const windowY = window.innerHeight / 2;
@@ -98,8 +97,14 @@ function onDocumentMouseMove(event){
   mouseX = (event.clientX - windowX)
   mouseY = (event.clientY - windowY)
 }
-const clock = new THREE.Clock()
 
+
+let mouseX = 0;
+let mouseY = 0;
+let targetX = 0;
+let targetY = 0;
+
+const clock = new THREE.Clock()
 
 function animate(){
   requestAnimationFrame(animate)
@@ -115,5 +120,4 @@ function animate(){
   globe.rotation.z += -.05 * (targetY - globe.rotation.x)
 }
   animate()
-
 

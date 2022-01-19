@@ -24,33 +24,35 @@
 <main class="grid">
         <?php
         foreach ($city as $city): ?>
-        <div class ="drapCell" style="--background:url(/sources/svg/<?= $city->CountryCode()?>.svg)">
+            <div class ="drapCell" style="--background:url(/sources/svg/
+            <?= $city->CountryCode()?>.svg)">
 
-        <section>  
-            <div class="locatn">
-                <p class="smlInfo">District : </p>
-                <p class="midInfo"><?=$city->District()?></p>
-            </div>
-        </section>  
+                <section>  
+                    <div class="locatn">
+                        <p class="smlInfo">District : </p>
+                        <p class="midInfo"><?=$city->District()?></p>
+                    </div>
+                    <div class="poepl">
+                        <p class="smlInfo">Population : </p>
+                        <p class="midInfo"><?=$city->Population()?> hab</p>
+                    </div>
 
-        <section>   
-            <div class="nomina">
-                <p class="midInfo">Name : </p>
-                <p class="vbigInfo"><?=$city->Name()?></p>
-            </div>
-            <div>
-                <p class="smlInfo">CountryCode : </p>
-                <p class="midInfo"><?=$city->CountryCode()?></p>
-            </div>  
-        </section>  
+                </section>  
 
-        <section>   
-            <div class="poepl">
-                <p class="smlInfo">Population : </p>
-                <p class="midInfo"><?=$city->Population()?> hab</p>
+                <section>   
+                    <div class="nomina">
+                        <p class="midInfo">Name : </p>
+                        <p class="vbigInfo"><?=$city->Name()?></p>
+                    </div>
+                    <div>
+                        <p class="smlInfo">CountryCode : </p>
+                        <p class="midInfo"><?=$city->CountryCode()?></p>
+                    </div>  
+                </section>  
+
             </div>
-        </section>  
-        </div>
         
         <?php endforeach; ?>
+
+        
 </main>

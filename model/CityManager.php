@@ -24,7 +24,7 @@
         //on assemble la requete SQL depuis une liste indéxée
         public static function arrayToRequestForView($tabAsso)
         {
-            $request = "SELECT DISTINCT city.* FROM `country`,`city` WHERE country.Code = city.CountryCode AND ";
+            $request = "SELECT DISTINCT city.* ,country.* FROM `country`,`city` WHERE country.Code = city.CountryCode AND ";
             foreach ($tabAsso as $key => $value) {
                 $request .= " ".$key."='".$value."' AND "; 
             }

@@ -1,5 +1,6 @@
 <?php
 require_once('views/View.php');
+
 class ControllerCountry
 {
     private $countryManager;
@@ -10,23 +11,25 @@ class ControllerCountry
         $crud = ucfirst(strtolower(array_shift($crit)));
         $list=self::urlToArray($crit);
 
+
         switch ($crud) 
         {
-            case 'dele':              
-                $this->deleToModelAndView($list);             
+            case 'Dele':       
+                $this->deleToModelAndView($list);     
                 break;
-            case 'upda':            
-                $this->updaToModelAndView($list);               
+            case 'Upda':   
+                $this->updaToModelAndView($list);         
                 break;
-            case 'crea':               
-                $this->creaToModelAndView($list);               
-                break;          
+            case 'Crea':           
+                $this->creaToModelAndView($list);            
+                break;      
+            case 'Json':              
+                $this->sendToModelThenJsonForCountry();            
+                break;
             default:              
-                $this->readToModelAndView($list);
-                //$this->sendToModelThenJsonForCountry();         
+                $this->readToModelAndView($list);       
                 break;
         }
-        
     }
 
     // on recupère les critères de séléction contenu dans crit
@@ -35,10 +38,12 @@ class ControllerCountry
     {
         $expUrl=[];
         $listAttValue=[];
+
         foreach ($crit as $re) {
             $expUrl = explode(":",$re);
             $listAttValue[$expUrl[0]]=$expUrl[1];
         }
+
         return $listAttValue;
     }
 
@@ -47,11 +52,13 @@ class ControllerCountry
     // puis on envoie la vue avec un message de comfirmation "creation faite"
     private function creaToModelAndView($tabasso)
     {
-        $this->countryManager = new CountryManager;
-        $country = $this->countryManager->getCountfree($tabasso);
         
+        $this->countryManager = new CountryManager;
+        $country = $this->countryManager->createCountry($tabasso);
+
         $this->view = new View('Country');
         $this->view->generate(array('country'=> $country));
+        
     }
 
     //READ
@@ -60,20 +67,20 @@ class ControllerCountry
     private function readToModelAndView($tabasso)
     {
         $this->countryManager = new CountryManager;
-        $country = $this->countryManager->getCountfree($tabasso);
-        
+        $country = $this->countryManager->readCountry($tabasso);
+            
         $this->view = new View('Country');
-        $this->view->generate(array('country'=> $country));
+        $this->view->generate(array('country'=> $country)); 
     }
 
     //UPDATE
     // on appelle un fonction de mise a jour, modification
     // puis on envoie la vue avec un message de comfirmation "modification faite"
     private function updaToModelAndView($tabasso)
-    {
+    {   
         $this->countryManager = new CountryManager;
-        $country = $this->countryManager->getCountfree($tabasso);
-        
+        $country = $this->countryManager->updateCountry($tabasso);
+            
         $this->view = new View('Country');
         $this->view->generate(array('country'=> $country));
     }
@@ -83,11 +90,13 @@ class ControllerCountry
     // puis on envoie la vue avec un message de comfirmation "element retiré"
     private function deleToModelAndView($tabasso)
     {
-        $this->countryManager = new CountryManager;
-        $country = $this->countryManager->getCountfree($tabasso);  
+        
+            $this->countryManager = new CountryManager;
+            $country = $this->countryManager->deleteCountry($tabasso);  
 
-        $this->view = new View('Country');
-        $this->view->generate(array('country'=> $country));
+            $this->view = new View('Country');
+            $this->view->generate(array('country'=> $country));
+        
     }
 
     //on envoie la requete SQL qui generera un json dans la classe Model
@@ -97,16 +106,5 @@ class ControllerCountry
         $this->countryManager->getListToManagerForJson();
     }
 
-
-    // tentative de recupération de moyenne directement de la BD
-    // remplacer par un moyenne des valeurs directement dans la view
-
-    // public static function AvglifeExpectancyOn($reqAvg){
-        
-    //     $fullReq = "SELECT DISTINCT country.LifeExpectancy FROM `country` WHERE country.Code = (".$reqAvg.")";
-
-    //     $this->countryManager = new CountryManager;
-    //     $this->countryManager->getListToManagerForJson($fullReq);
-    // }
 
 }

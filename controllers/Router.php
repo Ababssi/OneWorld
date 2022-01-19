@@ -10,7 +10,6 @@ class Router
         try
         {
             //CHARGEMENT AUTOMATIQUE DES CLASSES
-
             spl_autoload_register(function($class) {
                 require_once('model/'.$class.'.php'); 
             });
@@ -20,7 +19,8 @@ class Router
             {
                 
                 if (!empty($_GET['url'])) {
-                    $url = explode('/', filter_var($_GET['url']));   
+                    $url = explode('/', filter_var($_GET['url']),FILTER_SANITIZE_STRING);   
+
                     //on recupère le premier element du tableau $url tout en le supprimant de celui-ci      
                     $controller = ucfirst(strtolower(array_shift($url)));
                     $controllerClass = "Controller".$controller;
@@ -29,7 +29,7 @@ class Router
                         require_once($controllerFile);
                         $this->_ctrl = new $controllerClass($url);
                     } else {
-                        throw new Exception('Aucune correspondance fichier');
+                        throw new Exception('Syntax error on first argument url ');
                     }
                 }
                 else

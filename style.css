@@ -12,8 +12,10 @@
     --Econo : rgb(108, 193, 250, 0.3);
 
     --Primary : rgb(108, 193, 250);
+    --Update : rgb(255, 255, 255);
+    --Delete : rgb(255, 0, 0);
     --Primarylight : rgba(108, 193, 250, 0.5);
-    --Border : rgb(61, 61, 61);
+    --Gris : rgb(66, 66, 66);
     --FondCell : rgb(167, 218, 252);
 }
 body{
@@ -37,7 +39,11 @@ canvas{
 }
 h1{
     font-size: clamp(60px, 6vw, 120px);
-    color:#222;
+    color:var(--Gris);
+}
+h1 a {
+  text-decoration: none;
+  
 }
 h2{
     font-size: clamp(18px, 3.5vw, 45px);
@@ -48,7 +54,7 @@ h2{
 }
 h3{
     text-align: center;
-    color:#222;
+    color: var(--Gris);
     font-weight: 900;
 } 
 .rech{
@@ -59,7 +65,7 @@ h3{
 }
 .grid{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px,350px));
     grid-auto-rows: 300px;
     background: var(--fondTabColor); 
     justify-content: center;
@@ -91,7 +97,7 @@ h3{
 }
 .drapCell:hover{
     transition: 0.4s;
-    background-position: 75px 240px;
+    background-position: 130px 240px;
     border-radius: 18% 82% 20% 80% / 82% 13% 87% 18% ;
     background-color: rgba(81, 188, 246, 0.541);
 }
@@ -102,11 +108,18 @@ h3{
   align-items: center;
 }
 .drapCell div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 2px;
-  text-align: center;
-  border-radius: 20px;
+
+  border-radius: 8px;
   border: 0px solid #222;
   transition: 0.3s;
+}
+.drapCell input{
+text-align: center;
 }
 .drapCell div:hover{
   transition: 0.3s;
@@ -148,7 +161,7 @@ h3{
 }
 .cellSelected{
   font-weight: 1000;
-  color: #222;
+  color: var(--Gris);
   background: var(--Primary);
   border-radius: 18% 82% 20% 80% / 82% 13% 87% 18% ;
 }
@@ -175,8 +188,8 @@ label{
     font-size: 15px;
     font-weight: 900;
 }
-button{
-    color: #222;
+.btnFiltre{
+  color: var(--Gris);
     font-weight: 600;
     background: var(--Primary);
     padding: 2px 5px;
@@ -188,15 +201,15 @@ select{
     background: var(--Primarylight);
     margin: 8px auto;
     width: 100%;
-    border: 2px solid var(--Border); 
-    color: #222;
+    border: 2px solid var(--Gris); 
+    color: var(--Gris);
     padding: 2px 5px;
     border-radius: 5px;
 }
 .key{
   margin: 1px;
   display: inline-flex;
-  color: #222;
+  color: var(--Gris);
 }
 .val{
   margin: 1px;
@@ -220,6 +233,7 @@ select{
 }
 .vbigInfo{
   font-size: clamp(20px, 3.5vw, 23px);
+  margin: 0 auto;
   padding: 1px 2px;
   border-radius: 6px;
   font-weight: 1000;
@@ -227,22 +241,74 @@ select{
 }
 .bigInfo{
   font-size: clamp(14px, 3.5vw, 18px);
+  margin: 0 auto;
   padding: 1px 2px;
   border-radius: 6px;
   font-weight: 800;
 }
 .midInfo{
   font-size: clamp(9px, 3.5vw, 12px);
+  margin: 0 auto;
   padding: 1px 2px;
   border-radius: 4px;
   font-weight: 600;
 }
 .smlInfo{
   font-size: clamp(6px, 2.5vw, 9px);
+  margin: 0 auto;
   padding: 1px 2px;
   text-decoration: underline rgba(87, 87, 87, 0.479); 
   font-weight: 400;
 }
+.midInput{
+  border: none;
+  margin: 0 auto;
+  min-width: 40px;
+  font-size: 12px;
+  padding: 1px 2px;
+  border-radius: 5px;
+  font-weight:600;
+  color: var(--Gris);
+}
+.bigInput{
+  border: none;
+  margin: 0 auto;
+  min-width: 40px;
+  font-size: 12px;
+  padding: 1px 2px;
+  border-radius: 6px;
+  font-weight: 600;
+  color: var(--Gris);
+}
+.vbigInput{
+  border: none;
+  margin: 0 auto;
+  min-width: 40px;
+  font-size: 15px;
+  padding: 1px 2px;
+  border-radius: 6px;
+  font-weight: 800;
+  color: var(--Gris);
+}
+.btnDelete{
+  background-color: var(--Gris);
+  border: 2px solid var(--Gris);
+  font-size: 15px;
+  border-radius: 5px;
+  color:var(--Primary);
+  cursor: pointer;
+}
+.btnUpdate{
+  background-color: var(--Primary);
+  border: var(--Gris) 2px solid;
+  padding: 1px 1px;
+  font-size: 15px;
+  border-radius: 5px;
+  color: var(--Gris);
+  font-weight: 550;
+  cursor: pointer;
+}
+
 .rh1{
     text-align: left;
 }
@@ -268,11 +334,14 @@ select{
 }
 footer{
     position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
     bottom: 0;
     width: 100%;
     height: 45px;
     background: var(--Primary);
-    text-align: center;
     line-height: 45px;
 }
 footer a{

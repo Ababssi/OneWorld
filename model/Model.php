@@ -14,10 +14,23 @@ abstract class Model
             $this->setBdd();
         return self::$_bdd;
     }
-    protected function getAll($table, $obj, $Id, $crit)
+    // protected function getAll($table, $obj, $Id, $crit)
+    // {
+    //     $var =[];
+    //     $req =self::$_bdd->prepare('SELECT '.$crit.' FROM ' .$table.' ORDER BY '.$Id);
+    //     $req->execute();
+    //     while ($data =$req->fetch(PDO::FETCH_ASSOC))
+    //     {
+    //         $var[] = new $obj($data);  
+    //     }
+    //     return $var;
+    //     $req->closeCursor();
+    // }
+    protected function getOne($table, $obj, $crit)
     {
         $var =[];
-        $req =self::$_bdd->prepare('SELECT '.$crit.' FROM ' .$table.' ORDER BY '.$Id);
+        $requete = "SELECT ".$table.".* FROM `" .$table."` WHERE " .$table.".Code = '".$crit."'";
+        $req =self::$_bdd->prepare($requete);
         $req->execute();
         while ($data =$req->fetch(PDO::FETCH_ASSOC))
         {
@@ -26,30 +39,30 @@ abstract class Model
         return $var;
         $req->closeCursor();
     }
-    protected function getOne($table, $obj, $crit)
-    {
-        $var =[];
-        $req =self::$_bdd->prepare('SELECT DISTINCT '.$crit.' FROM ' .$table.' ORDER BY '.$crit);
-        $req->execute();
-        while ($data =$req->fetch(PDO::FETCH_ASSOC))
-        {
-            $var[] = new $obj($data);
-        }
-        return $var;
-        $req->closeCursor();
-    }
-
-    protected function getListfree($obj,$requeteSQL)
+    protected function getListObj($obj,$requeteSQL)
     {
         $var =[];
         $req =self::$_bdd->prepare($requeteSQL);
         $req->execute();
+
         while ($data =$req->fetch(PDO::FETCH_ASSOC))
         {
             $var[] = new $obj($data);  
         }
         return $var;
         $req->closeCursor();
+    } 
+
+    protected function execRequeteModel($requeteSQL)
+    {
+        $req =self::$_bdd->prepare($requeteSQL);
+        $update = $req->execute();
+        $req->closeCursor();
+        if ($update){
+            return true;
+        }
+        else throw new Exception('Un problème est survenu lors 
+                de la requête à la base donnée fichier model');
     }
 
     protected function getConnect($obj, $requestSQL)
@@ -63,7 +76,8 @@ abstract class Model
             return $var;
             $req->closeCursor();
         }
-        else{ 
+        else
+        { 
             return -1;
         }
     }
@@ -82,3 +96,14 @@ abstract class Model
         $req->closeCursor();
     }
 }
+
+
+
+
+
+
+
+
+
+
+

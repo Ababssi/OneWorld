@@ -26,35 +26,29 @@
         foreach ($countrylanguage as $countrylanguage): ?>
            <div class ="drapCell" style="--background:url(/sources/svg/<?= $countrylanguage->CountryCode()?>.svg)">
 
-             
-
               <section> 
                 <div class="locatn">
                     <p class="smlInfo">CountryCode : </p>
                     <p class="midInfo"><?= $countrylanguage->CountryCode() ?></p>    
                 </div>  
-              </section> 
-
-              <section> 
                 <div class="nomina">
                     <p class="midInfo"></p>
                     <p class="vbigInfo">The <?= $countrylanguage->Language() ?></p>
                 </div> 
-              </section>  
+              </section> 
+
 
               <section>
                 <div class="politc">                 
                     <p class="midInfo">IsOfficial : </p>
                     <p class="bigInfo"><?= $countrylanguage->IsOfficial() ?></p>
                 </div>  
-              </section>  
-
-              <section>
                 <div class="poepl">
                     <p class="midInfo"></p>
                     <p class="bigInfo"><?= $countrylanguage->Percentage()?>% </p>
                 </div>  
               </section>  
+
               </div>        
             
         <?php endforeach; ?>  

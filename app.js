@@ -65,6 +65,85 @@ function afficheRech3()
 //-----------------------------------FonctionTraitement-----------------------------------
 
 //----------------------------------------------------------------------------------------
+//-----------------------------------ValidationForm-----------------------------------
+const btnUpdate = document.querySelector(".btnUpdate");
+const btnsDeletes = document.querySelectorAll(".btnDelete");
+
+btnsDeletes.forEach(btnDelete => {
+	btnDelete.addEventListener("click", e =>
+	{
+		let code = e.target.parentElement.parentElement.parentElement["code"].value;
+
+		let urlUpdate =`http://oneworld.cyberdevweb.fr/index.php?url=country/Dele/country.Code:`+code;
+
+		window.location.href =urlUpdate;
+
+	})
+});
+
+function validateFormCrea() 
+{	
+	let code = document.forms["frmUpdateCrea"]["code"].value;
+	let popu = document.forms["frmUpdateCrea"]["population"].value;
+	let life = document.forms["frmUpdateCrea"]["lifeExpectancy"].value;
+	let cont = document.forms["frmUpdateCrea"]["continent"].value;
+	let name = document.forms["frmUpdateCrea"]["nameCountry"].value;
+	let surf = document.forms["frmUpdateCrea"]["surface"].value;	
+	let inde = document.forms["frmUpdateCrea"]["indepYear"].value;
+	let gove = document.forms["frmUpdateCrea"]["governmentForm"].value;
+	let head = document.forms["frmUpdateCrea"]["headOfState"].value;
+	let capi = document.forms["frmUpdateCrea"]["capitale"].value;
+	let lang = document.forms["frmUpdateCrea"]["officialLang"].value;
+
+	const tapInput = [code,popu,life,cont,name,surf,inde,gove,head,capi,lang];
+
+	for (var input in tapInput) 
+	{
+		if (input=="" || input == null)
+		{
+			alert("Tous les champs doivent être remplis");
+	  		return false;
+		}
+	}
+
+	let urlUpdate =`http://oneworld.cyberdevweb.fr/index.php?url=country/Crea/country.Code:`+code+`/country.Population:`+popu+`/country.LifeExpectancy:`+life+`/country.NameCountry:`+name+`/country.SurfaceArea:`+surf+`/country.GovernmentForm:`+gove+`/country.HeadOfState:`+head+`/country.Continent:`+cont+`/country.IndepYear:`+inde+`/city.Name:`+capi+`/countrylanguage.Language:`+lang;
+
+	window.location.href =urlUpdate;
+	return false;
+}
+
+
+function validateFormUpda(i) 
+{	
+	let code = document.forms["frmUpdate"+i]["code"].value;
+	let popu = document.forms["frmUpdate"+i]["population"].value;
+	let life = document.forms["frmUpdate"+i]["lifeExpectancy"].value;
+	let cont = document.forms["frmUpdate"+i]["continent"].value;
+	let name = document.forms["frmUpdate"+i]["nameCountry"].value;
+	let surf = document.forms["frmUpdate"+i]["surface"].value;	
+	let inde = document.forms["frmUpdate"+i]["indepYear"].value;
+	let gove = document.forms["frmUpdate"+i]["governmentForm"].value;
+	let head = document.forms["frmUpdate"+i]["headOfState"].value;
+
+	const tapInput = [code,popu,life,cont,name,surf,inde,gove,head];
+
+	for (var input in tapInput) 
+	{
+		if (input=="" || input == null)
+		{
+			alert("Tous les champs doivent être remplis");
+	  		return false;
+		}
+	}
+
+	let urlUpdate =`http://oneworld.cyberdevweb.fr/index.php?url=country/Upda/country.Code:`+code+`/country.Population:`+popu+`/country.LifeExpectancy:`+life+`/country.NameCountry:`+name+`/country.SurfaceArea:`+surf+`/country.GovernmentForm:`+gove+`/country.HeadOfState:`+head+`/country.Continent:`+cont+`/country.IndepYear:`+inde;
+
+	window.location.href =urlUpdate;
+	return false;
+}
+
+
+//----------------------------------------------------------------------------------------
 //----------------------------------DisparitionApparition---------------------------------
 
 let sBarCity = document.getElementById('rechCity');
@@ -305,3 +384,4 @@ new TomSelect('#selectByCoun2',{
 		}
 	},
 });
+

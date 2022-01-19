@@ -14,7 +14,9 @@ class View
     public function generate($data)
     {   
         $content = $this->generateFile($this->_file, $data);
-        $view = $this->generateFile('views/template.php',array('t' => $this->_t,'content' => $content));
+        $view = $this->generateFile('views/template.php', 
+                       array('t' => $this->_t,
+                       'content' => $content));
         echo $view;
     }
 
@@ -22,8 +24,8 @@ class View
     {
         if(file_exists($file))
         {
-            extract($data);
             ob_start();
+            extract($data);
             require $file;
             return ob_get_clean();
         }
